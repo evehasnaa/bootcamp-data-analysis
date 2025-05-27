@@ -1,156 +1,100 @@
+# 🛍️ E-Commerce Data Analytics & Predictive Insights Project
 
-# 📊 Power BI Customer & Sales Analysis Report
+## 🔖 Overview  
+This project demonstrates a full-cycle e-commerce data analysis solution developed collaboratively using modern data technologies.  
+As part of the Power BI team, my key role was customer segmentation—analyzing customer behavior to derive actionable insights that inform marketing strategies and product recommendations. The project was organized and tracked through Notion, with clear task delegation and transparent collaboration.
 
-### 👩‍💻 Analyst: Hasnaa Ahmed  
-### 🗓️ Project Scope: Customer Segmentation, CLV, Payment Behavior & Sales Insights
+## 🔗 Project Artifacts  
+📎 Notion (team documentation)  
+📊 Power BI Dashboards  
+📁 SQL Scripts and Python Notebooks  
 
----
-
-## 🔎 Overview
-
-This report presents key insights extracted from three main tables: `Customers`, `Payments`, and `Shipping`. By leveraging Power BI, various visuals and DAX measures were applied to explore customer behaviors, classify them based on lifetime value, analyze payment trends, and track product performance across segments.
-
----
-
-## 🧩 1. Customer Classification Overview
-
-**Objective**: Segment customers into High, Medium, and Low value groups to tailor marketing strategies and business decisions.
-
-- **Transformation**: Created a new column `Customer Classification` using behavioral and monetary rules.
-- **Visual Used**: Donut Chart
-- **Value**: Count of customers per class
-
-**💡 Insight**: Most revenue is concentrated among High Value customers, highlighting the need for retention-focused efforts toward this segment.
+## 🧩 Tools & Technologies  
+- **Cloud Platform:** Azure SQL Database  
+- **Data Cleaning & Processing:** SQL Server, Python (pandas, pyodbc, Mito)  
+- **Visualization:** Power BI  
+- **Machine Learning:** scikit-learn, XGBoost  
+- **NLP Querying:** Vanna AI  
 
 ---
 
-## 💧 2. Customer CLV Contribution by Segment
+## 🗂️ Project Phases
 
-**Objective**: Understand how each customer class contributes to total Customer Lifetime Value (CLV).
-
-- **Visual Used**: Waterfall Chart  
-- **Measure**:
-```DAX
-Customer CLV = 
-CALCULATE(
-    SUM('Fac Order Details'[Revenue]),
-    FILTER('Fac Order Details', 'Fac Order Details'[order_id] = 'Dim Customers'[id])
-)
-````
-
-**💡 Insight**: High-value customers contribute significantly to overall business revenue. Targeted loyalty programs are essential for this segment.
+### ☁️ 1. Creating & Connecting Azure SQL Database  
+- Set up and configured cloud-hosted SQL database for collaborative data access  
+- Managed connection between local tools (Power BI, Python) and Azure SQL  
 
 ---
 
-## 🔝 3. Top 10 Products by Revenue (Per Segment)
+### 🔍 2. Data Cleaning & Validation (SQL Server)  
+Performed rigorous audits using dynamic SQL:  
+- Removed duplicates & invalid rows  
+- Standardized data formats  
+- Detected anomalies:  
+  - Orders with zero/negative values  
+  - Inventory with zero quantity  
+  - Customers with no orders  
+  - Overstocked products  
 
-**Objective**: Identify the best-performing products across customer segments.
-
-* **Visual Used**: Funnel Chart
-* **Filter Applied**: Top 10 products by revenue within each segment
-
-**💡 Insight**: Product preferences vary by customer type. Personalization and recommendation engines can benefit from this.
-
----
-
-## 💳 4. Payment Method Preference by Segment
-
-**Objective**: Visualize the preferred payment methods for each customer class.
-
-* **Visual Used**: Donut Chart
-* **Legend**: Payment Method
-* **Filter**: Customer Classification
-
-**💡 Insight**: Different segments prefer different payment methods. Optimize offerings based on usage trends.
+💡 Created secure department-specific views for role-based access
 
 ---
 
-## 💰 5. Total Payment Amount by Customer Class
+### 📈 3. Business Intelligence Dashboard (Power BI)
 
-**Objective**: Compare total amount paid by each customer class.
+**My Role: Customer Segmentation Analysis**  
+I was responsible for identifying customer groups using behavioral data (e.g., frequency of purchase, total spend, return behavior) and visualizing patterns via interactive dashboards.
 
-* **Visual Used**: Column Chart
-* **Measure**:
+**Key Metrics:**
+- 🧾 Total Revenue: $45M (+24.6%)  
+- 📦 Total Orders: 10.2K (+24.57%)  
+- 🔁 Return Rate: 1% (excellent satisfaction)
 
-```DAX
-Total Amount = SUM(payments[amount])
-```
+**Insights Delivered:**
+- Top-performing customer segments  
+- Monthly ordering trends  
+- Return & shipping analysis  
+- Alerts on low inventory levels  
 
-**💡 Insight**: High-value customers, while fewer, contribute the majority of revenue. Focus retention and upsell efforts on them.
-
----
-
-## 🧠 6. Customer Behavior Analysis Table
-
-**Objective**: Deep-dive into individual customer profiles and behaviors.
-
-* **Visual Used**: Table
-* **Columns Included**:
-
-  * Full Name (`first_name + last_name`)
-  * Total Orders
-  * Average Rating
-  * Sum of CLV
-  * Net Revenue
-  * Total Amount Paid
-
-**💡 Insight**: Enables tracking customer value, identifying top contributors, and spotting those with high potential but low activity.
+**Recommendations:**
+- Implement loyalty programs for high-retention segments  
+- Adjust return policies for high-return products  
+- Optimize marketing to better reach under-engaged segments
 
 ---
 
-## 📈 7. Customer Registration Trends
-
-**Objective**: Analyze customer growth over time.
-
-* **Visual Used**: Line Chart
-* **Measure**: Count of Customer IDs
-* **Axis**: Monthly aggregation of `registration_date`
-
-**💡 Insight**: Helps identify peak sign-up periods and campaign effectiveness.
+### 💬 4. Natural Language SQL (Vanna AI)  
+- Enabled natural language querying for non-technical users  
+- Translated business questions into real-time SQL queries  
+- Enhanced team collaboration and decision-making  
 
 ---
 
-## 🚚 8. Shipping Company Distribution
+### 🧠 5. Machine Learning Pipeline (Python)  
+- Built a model to predict customer order value  
+- Used XGBoost and Random Forest regressors  
+- Achieved high accuracy in predicting repeat customer behavior  
 
-**Objective**: Understand shipping carrier usage across orders.
-
-* **Transformation**: Renamed `carrier` column to `Shipping Company`
-* **Visual Used**: Donut Chart
-* **Value**: Count of shipping records
-
-**💡 Insight**: Useful for evaluating logistics partnerships and operational performance.
+**Outcome:** Informed targeted marketing and personalized offers based on predicted customer value
 
 ---
 
-## 🥇 9. Top 10 Paying Customers
-
-**Objective**: Highlight the most valuable customers in terms of payment.
-
-* **Visual Used**: Clustered Column Chart
-* **Axis**: Full Name
-* **Value**: Total Amount Paid
-* **Filter**: Top 10 by total amount
-
-**💡 Insight**: These are the top VIP customers. Focus on retention, rewards, and proactive engagement.
+## 🎯 Final Insights & Recommendations  
+- **91%** 30-day retention rate → launch tiered loyalty programs  
+- Low-rated products → introduce feedback & review incentives  
+- Product pairs often bought together → bundle for upselling  
+- Discounts underused → revisit targeting and visibility
 
 ---
 
-## ✅ Business Recommendations
-
-| Recommendation                 | Description                                                 |
-| ------------------------------ | ----------------------------------------------------------- |
-| 🎯 Retain High-Value Customers | Launch loyalty programs and personalized outreach.          |
-| 💳 Optimize Payment Options    | Prioritize support for the most-used methods per segment.   |
-| 📬 Personalized Campaigns      | Use customer classification for better targeting.           |
-| 🛒 Product Positioning         | Promote top-performing products for each segment.           |
-| 📈 Forecasting                 | Use registration trends to plan marketing and resourcing.   |
-| 📊 Operational Review          | Re-evaluate underused or underperforming shipping carriers. |
+## 🏆 My Key Contributions  
+✅ Specialized in Customer Segmentation using Power BI  
+✅ Designed and implemented dashboards with actionable KPIs  
+✅ Transformed raw customer data into impactful insights  
+✅ Collaborated in a cross-functional team with SQL & ML engineers  
+✅ Contributed to final project competition presentation
 
 ---
 
-> 📁 **Note**: This report is built using Power BI and connected to a SQL Server database. Measures are written in DAX. Visuals and transformations are designed to support data-driven decisions for marketing, product strategy, and customer success.
-
----
-
-```
-
+## 📬 Let’s Connect  
+Feel free to reach out for feedback, collaboration, or if you’re interested in the full report or dashboard samples!
