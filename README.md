@@ -130,6 +130,9 @@ I was responsible for identifying customer groups using behavioral data (e.g., f
 
 ## 📬 Let’s Connect
 
-Feel free to reach out for feedback, collaboration, or if you’re interested in the full report or dashboard samples!
+For feedback, collaboration, or inquiries about the full report or dashboards:
+
+- 📧 **Email:** hasnaaahmed745@gmail.com  
+- 💼 **LinkedIn:** [linkedin.com/in/hasnaaahmed]([https://www.linkedin.com/in/hasnaaahmed]
 
 ---
